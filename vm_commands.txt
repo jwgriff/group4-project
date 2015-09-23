@@ -1,0 +1,7 @@
+#Access your database instance after vagrant ssh
+mysql --host=localhost --user=homestead --password=secret homestead
+
+mysql --host=localhost --user=homestead --password=secret group4DB
+
+#Used to generate a ssh key at the git-bash command for Virtualbox and Vagrant
+ssh-keygen -t rsa -C "your@emailaddress"
