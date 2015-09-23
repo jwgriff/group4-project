@@ -1,1 +1,0 @@
-{"virtualbox":{"/home/vagrant/group4-project":{"type":null,"mount_options":[],"guestpath":"/home/vagrant/group4-project","hostpath":"C:/phpDev/projects/group4-project","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/phpDev/projects/group4-project","disabled":false}}}
