@@ -72,6 +72,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  Go to this fork and copy the HTTPS clone URL.
 	  
 	  Open a git bash prompt and navigate to the location that you want to download the code base to
+
 	  Example: C:\phpDev\projects\
 	  
 	  To clone (copy to your machine) the project, enter: 
@@ -119,15 +120,23 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 
 
 
-A few URLS for next steps with Laravel.
 
-If you’re interested in an IDE:
+
+
+##A few URLS for Next Steps:
+
+
+If you’re interested in configuring the IDE:
 
 https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
+
+
 
 YouTube Laravel Tutorials Series:
 
 https://laracasts.com/series/how-to-be-awesome-in-phpstorm/episodes/1
+
+
 
 Example Crowdfunding Site:
 
