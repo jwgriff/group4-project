@@ -80,16 +80,16 @@ in this fashion so it'll be a learning experience all around! The steps so far a
    8. Install project dependencies: 
    
 	  Change into group4-project root ( $ cd group4-project)
-	  Install dependencies: $ composer install
+	  
+	  type: $ composer install
    
    9. Configure Homestead.yaml to your environment;
 
       Open Homestead.yaml in a text editor and change to your project directory.
 	  If you used the Example project directory above....
 	  
-	  folders:
-	  
-		- map: "C:/phpDev/projects/group4-project" 
+	  folders:	  
+	    - map: "C:/phpDev/projects/group4-project" 
 
  10. Add Vagrant VM to your computer host file:
   
