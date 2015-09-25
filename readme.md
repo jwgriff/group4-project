@@ -42,13 +42,13 @@ in this fashion so it'll be a learning experience all around! The steps so far a
    4. Install PHP Storm ( Strongly Suggested..not required)
 
 
-       https://www.jetbrains.com/phpstorm/download/
+        https://www.jetbrains.com/phpstorm/download/
 
 
        Note: GWU has an educational agreement with PHP Storms maker  JetBrains
 
 
-       https://www.jetbrains.com/student/
+        https://www.jetbrains.com/student/
 
 
    5. Install Vagrant:
@@ -64,6 +64,10 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  https://getcomposer.org/doc/00-intro.md
 	  
 	  This is needed to manage the projects dependencies. 
+
+	  Note: If you have problems with the installer try a manual install:
+	  
+	  https://getcomposer.org/doc/00-intro.md#manual-installation
 	  
    7. Fork and Clone group4-project:
    
@@ -76,6 +80,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  Example: C:\phpDev\projects\
 	  
 	  To clone (copy to your machine) the project, enter: 
+	  
 	  $ git clone https://github.com/your-github-user-is/group4-project.git
 	  
    8. Install project dependencies: 
