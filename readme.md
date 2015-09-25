@@ -54,20 +54,20 @@ in this fashion so it'll be a learning experience all around! The steps so far a
    5. Install Vagrant:
 
 
-       https://docs.vagrantup.com/v2/getting-started/
+        https://docs.vagrantup.com/v2/getting-started/
 
 
        Please install Virtualbox 4.3.30 after install add Virtualbox Extension pack 4.3.3
 	   
    6. Install Composer:
    
-	  https://getcomposer.org/doc/00-intro.md
+	    https://getcomposer.org/doc/00-intro.md
 	  
 	  This is needed to manage the projects dependencies. 
 
 	  Note: If you have problems with the installer try a manual install:
 	  
-	  https://getcomposer.org/doc/00-intro.md#manual-installation
+	    https://getcomposer.org/doc/00-intro.md#manual-installation
 	  
    7. Fork and Clone group4-project:
    
