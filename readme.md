@@ -106,7 +106,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  
 	  Note: This clone is your personal copy of the project. You can work and commit to it
 	  without fear of breaking others code. The general practice is to commit minor steps of a major 
-	  implantation feature. Once the major feature is complete, submit a pull request to have your code
+	  feature implementation. Once the major feature is complete, submit a pull request to have your code
 	  intergraded into the main project code base. (see 13 below)
 	  
 	  Read up on Git-Work-Flow
