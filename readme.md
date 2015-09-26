@@ -25,9 +25,11 @@ in this fashion so it'll be a learning experience all around! The steps so far a
         so search for php_openssh and uncomment that line of code in your php.ini file.
 
 	Detailed instructions are located on the site that follows:
+		
 		http://www.sitepoint.com/how-to-install-php-on-windows/
 
 	For PHP Windows Zip downloads:
+		
 		http://windows.php.net/qa/
 	
 	Note: I used PHP 5.6 VC11 x86 Thread Safe
