@@ -179,6 +179,10 @@ cool resources from the Laravel ecosystem
 
 https://github.com/chiraggude/awesome-laravel#development-setup
 
+PHP Manual:
+
+http://php.net/manual/en/
+
 
 Example Crowdfunding Site:
 
