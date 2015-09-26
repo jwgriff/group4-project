@@ -17,6 +17,23 @@ I can then add you as a collaborator on our project. This is my first time using
 
 in this fashion so it'll be a learning experience all around! The steps so far are
 
+   0. Install PHP:
+   
+	As a real first step, you should install PHP for local development.
+	An important step that’s not well explained, is the need to save a copy
+	of the php.ini-development file as php.ini file. Vagrant will need to use ssl
+        so search for php_openssh and uncomment that line of code in your php.ini file.
+
+	Detailed instructions are located on the site that follows:
+		http://www.sitepoint.com/how-to-install-php-on-windows/
+
+	For PHP Windows Zip downloads:
+		http://windows.php.net/qa/
+	
+	Note: I used PHP 5.6 VC11 x86 Thread Safe
+
+
+
 
    1. Sign Up for Git-Hub:
 
@@ -129,7 +146,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  
 	  Success!! I hope..lol
 
-   13. Submitting your code to the project.
+   13. Submitting your code to the project:
    	
       Once you've implemented a feature you believe is ready for the project
       you have to submit a pull request. This will send a report to all the 
