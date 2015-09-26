@@ -70,7 +70,9 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	    https://getcomposer.org/doc/00-intro.md#manual-installation
 	  
    7. Fork and Clone group4-project:
-   
+   		
+	  https://help.github.com/articles/fork-a-repo/
+
 	  While signed into Git-Hub, click the Fork button (Upper right hand corner).
 	  This will create a branch for your personal development efforts. 
 	  Go to this fork and copy the HTTPS clone URL.
@@ -82,6 +84,12 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  To clone (copy to your machine) the project, enter: 
 	  
 	  $ git clone https://github.com/your-github-user-is/group4-project.git
+	  
+	  Note: This clone is your personal copy of the project. You can work and commit to it
+	  without fear of breaking others code. The general practice is to commit minor steps of a major 
+	  implantation feature. Once the major feature is complete, submit a pull request to have your code
+	  intergraded into the main project code base. (see 13 below)
+
 	  
    8. Install project dependencies: 
    
@@ -120,11 +128,17 @@ in this fashion so it'll be a learning experience all around! The steps so far a
       Open Browser and point it to: http://group4.app
 	  
 	  Success!! I hope..lol
-	  
-	  
+
+   13. Submitting your code to the project.
+   	
+      Once you've implemented a feature you believe is ready for the project
+      you have to submit a pull request. This will send a report to all the 
+      collaborators, letting us know how your code may impact our work.
+      The details can be found at the site listed below:
 
 
-
+       https://help.github.com/articles/using-pull-requests/
+       
 
 
 
@@ -141,11 +155,19 @@ YouTube Laravel Tutorials Series:
 
 https://laracasts.com/series/how-to-be-awesome-in-phpstorm/episodes/1
 
+Awesome Laravel: A curated list of awesome bookmarks, packages, tutorials, videos and other 
+cool resources from the Laravel ecosystem
+
+https://github.com/chiraggude/awesome-laravel#development-setup
 
 
 Example Crowdfunding Site:
 
-https://www.crowdfunder.com/
+ https://www.crowdfunder.com/
+
+ https://circleup.com/
+
+ http://www.fundable.com/
 
 
 
