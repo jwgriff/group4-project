@@ -91,7 +91,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  folders:	  
 	    - map: "C:/phpDev/projects/group4-project" 
 
- 10. Add Vagrant VM to your computer host file:
+  10. Add Vagrant VM to your computer host file:
   
 	Don't forget to add the "domains" for your Nginx sites to the hosts file on your machine! 
 	The hosts file will redirect your requests for the local domains into your Homestead environment. 
@@ -105,11 +105,11 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	
 	Extracted from: http://laravel.com/docs/5.1/homestead#per-project-installation
 	
- 11. Fire up Vagrant:
+  11. Fire up Vagrant:
   
 	  In git bash at the project root type: $ vagrant up
 	  
- 12. Verify Projects Running...
+  12. Verify Projects Running...
   
       Open Browser and point it to: http://group4.app
 	  
