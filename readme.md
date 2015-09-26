@@ -90,7 +90,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  
    7. Fork and Clone group4-project:
    		
-	  https://help.github.com/articles/fork-a-repo/
+	  	https://help.github.com/articles/fork-a-repo/
 
 	  While signed into Git-Hub, click the Fork button (Upper right hand corner).
 	  This will create a branch for your personal development efforts. 
@@ -106,8 +106,13 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 	  
 	  Note: This clone is your personal copy of the project. You can work and commit to it
 	  without fear of breaking others code. The general practice is to commit minor steps of a major 
-	  implantation feature. Once the major feature is complete, submit a pull request to have your code
+	  feature implementation. Once the major feature is complete, submit a pull request to have your code
 	  intergraded into the main project code base. (see 13 below)
+	  
+	  Read up on Git-Work-Flow
+	  
+	  
+	  	https://guides.github.com/introduction/flow/
 
 	  
    8. Install project dependencies: 
@@ -156,7 +161,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
       The details can be found at the site listed below:
 
 
-       https://help.github.com/articles/using-pull-requests/
+       	https://help.github.com/articles/using-pull-requests/
        
 
 
