@@ -163,26 +163,39 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 
 ##A few URLS for Next Steps:
 
+Good Resources for Learning Git and GitHub:
+
+https://help.github.com/articles/good-resources-for-learning-git-and-github/
+
+==
 
 If you’re interested in configuring the IDE:
 
 https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpStorm
 
 
+==
 
 YouTube Laravel Tutorials Series:
 
 https://laracasts.com/series/how-to-be-awesome-in-phpstorm/episodes/1
+
+
+==
 
 Awesome Laravel: A curated list of awesome bookmarks, packages, tutorials, videos and other 
 cool resources from the Laravel ecosystem
 
 https://github.com/chiraggude/awesome-laravel#development-setup
 
+
+==
+
 PHP Manual:
 
 http://php.net/manual/en/
 
+==
 
 Example Crowdfunding Site:
 
