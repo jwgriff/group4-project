@@ -50,9 +50,7 @@ in this fashion so it'll be a learning experience all around! The steps so far a
 
 
        This will also install Git (Source Control) and Git-bash which you will need to
-
-
-        generate the public/private key for Virtualbox/vagrant
+       generate the public/private key for Virtualbox/vagrant
 
 
    3. Email me your Git-Hub username
