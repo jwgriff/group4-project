@@ -217,5 +217,4 @@ Documentation for the framework can be found on the [Laravel website](http://lar
 ## Contributing
 
 Thank you for contributing to the ISTM 6213 Group 4 Project! 
-
-
+Testing Github pull request
