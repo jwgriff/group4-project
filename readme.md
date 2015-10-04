@@ -79,7 +79,16 @@ in this fashion so it'll be a learning experience all around! The steps so far a
    6. Install Composer:
    
 	    https://getcomposer.org/doc/00-intro.md
-	  
+
+	  Important-
+	If you are getting an error regarding the open_ssl extension , do the following steps-
+	1.open php.ini-development and do "Save as" and save it as "php.ini".
+		a.Open php.ini in an editor.
+		b. Find "Directory in which the loadable extensions (modules) reside." in the file.
+		c. Below "On Windows". Set the path to your php\ext folder.
+	2. In the same file (php.ini)
+		a. Find "extension=php_openssl.dll" and uncomment it.
+		b. Find "extension=php_mbstring.dll" and uncomment it.
 	  This is needed to manage the projects dependencies. 
 
 	  Note: If you have problems with the installer try a manual install:
@@ -144,6 +153,8 @@ in this fashion so it'll be a learning experience all around! The steps so far a
    11. Fire up Vagrant:
   
 	  In git bash at the project root type: $ vagrant up
+
+	  *Important- If you are having errors while executing "vagrant up" command in WINDOWS 10, then run the file that Ajinkya has sent to you while running the "vagrant up" command.
 	  
    12. Verify Projects Running...
   
