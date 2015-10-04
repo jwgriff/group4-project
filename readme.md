@@ -192,6 +192,8 @@ https://confluence.jetbrains.com/display/PhpStorm/Laravel+Development+using+PhpS
 
 YouTube Laravel Tutorials Series:
 
+https://laracasts.com/series/laravel-5-fundamentals
+
 https://laracasts.com/series/how-to-be-awesome-in-phpstorm/episodes/1
 
 
