@@ -22,7 +22,7 @@
                 <p><a class="btn btn-default" href="/" role="button">Return Main &raquo;</a></p>
             </div>
             <div class="col-md-4">
-                <p><a class="btn btn-default" href="#" role="button">Sign Up &raquo;</a></p>
+                <p><a class="btn btn-default" href="#" role="button">Founders Sign Up &raquo;</a></p>
             </div>
         </div>
     </div>
