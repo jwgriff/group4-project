@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <base href="http://group4.app/" />
-<link rel="icon" href="../../favicon.ico">
+<link rel="icon" href="../img/gw.ico">
 
 <title>Jumbotron Template for Bootstrap</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
