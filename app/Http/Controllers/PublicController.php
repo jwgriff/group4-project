@@ -13,18 +13,17 @@ class PublicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function main()
-    {
+
+    public function main(){
         return view('public.mainContent');
     }
 
-    public function investor()
-    {
+    public function investor(){
+        //dd('TestOut dd');
         return view('public.mainInvestor');
     }
 
-    public function founder()
-    {
+    public function founder(){
         return view('public.mainFounder');
     }
 

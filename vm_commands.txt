@@ -6,9 +6,15 @@ mysql --host=localhost --user=homestead --password=secret group4DB
 #Used to generate a ssh key at the git-bash command for Virtualbox and Vagrant
 ssh-keygen -t rsa -C "your@emailaddress"
 
+#Location of nginx application specs
+/etc/nginx/sites-available/
+
+#Location of apache server web-inf
+/opt/bitnami/apache2/htdocs/lab1$
+
+//Original .env.example settings
 #env.example original file contents
 #adding my .env values to commited version on .env.example
-
 APP_ENV=local
 APP_DEBUG=true
 APP_KEY=SomeRandomString
@@ -28,6 +34,3 @@ MAIL_PORT=2525
 MAIL_USERNAME=null
 MAIL_PASSWORD=null
 MAIL_ENCRYPTION=null
-
-/opt/bitnami/apache2/htdocs/lab1$
-

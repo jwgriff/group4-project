@@ -21,6 +21,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var string
      */
+    // region Protected Variables
     protected $table = 'users';
 
     /**
@@ -28,7 +29,8 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password',
+                            'is_admin', 'is_founder', 'is_investor'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +38,42 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+
+    protected $cast = [
+        'is_admin' => 'boolean',
+        'is_founder' => 'boolean',
+        'is_investor' => 'boolean',
+    ];
+
+    protected $redirectTo;
+
+    /**
+     * @param array $attributes
+     */
+
+    // region Public Methods
+    public function __construct($attributes = array())  {
+        parent::__construct($attributes); // Eloquent
+        // Your construct code.
+        if($this->isAdmin()){
+            $this->redirectTo = '/admin';
+        }elseif($this->isFounder()){
+            $this-> redirectTo = '/founder';
+        }elseif($this->isInvestor()){
+            $this->redirectTo = '/investor';
+        }
+    }
+
+    public function isAdmin(){
+       return $this->getAttribute('is_admin');
+    }
+
+    public function isFounder(){
+        return $this->getAttribute('is_founder');
+    }
+
+    public function isInvestor(){
+        return  $this->getAttribute('is_investor');
+    }
 }
