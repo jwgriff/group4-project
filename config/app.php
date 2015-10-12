@@ -139,6 +139,15 @@ return [
 
         //wef: PHP Storm Lavavel IDE Helper
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class, // Laravel IDE helper
+        //wef: Debugging Support
+        Barryvdh\Debugbar\ServiceProvider::class,
+        //wef: Scafold for authentication generators
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
+        //wef: Form Helper for Live Templates
+        Illuminate\Html\HtmlServiceProvider::class,
+
+
+
 
         /*
          * Application Service Providers...
@@ -196,6 +205,11 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',//wef: Debugging Support
+        'Form'      => Illuminate\Html\FormFacade::class,//wef: Form Helper
+        'Html'      => Illuminate\Html\HtmlFacade::class,//wef: Html Helper
+
+
 
     ],
 

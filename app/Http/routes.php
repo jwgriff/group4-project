@@ -9,8 +9,30 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
+
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//PublicController servicing public pages
+Route::get('/', 'PublicController@main');
+
+Route::get('/investor', 'PublicController@investor');
+
+Route::get('/founder', 'PublicController@founder');
+
+
+Route::get('/home',function(){
+    if(Auth::user()->isAdmin()) {
+        return view('layouts.admin');
+    }elseif(Auth::user()->isFounder()){
+        return view('layouts.founder');
+    }elseif(Auth::user()->isInvestor()){
+        return view('layouts.investor');
+    }
 });
+
+/*
+Route::controller([
+    'auth' => 'Auth\AuthController',
+    'password' => 'AuthPasswordController',
+]);
+*/
