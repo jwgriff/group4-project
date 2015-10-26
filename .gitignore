@@ -6,4 +6,5 @@
 /vendor
 .vagrant
 workspace.xml
+.idea
 

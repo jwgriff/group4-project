@@ -206,8 +206,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar' => 'Barryvdh\Debugbar\Facade',//wef: Debugging Support
-        'Form'      => Illuminate\Html\FormFacade::class,//wef: Form Helper
-        'Html'      => Illuminate\Html\HtmlFacade::class,//wef: Html Helper
+        'Form'     => Illuminate\Html\FormFacade::class,//wef: Form Helper
+        'Html'     => Illuminate\Html\HtmlFacade::class,//wef: Html Helper
 
 
 
