@@ -7,11 +7,12 @@ function init(){
     $(document).ready( function () {
         tabInit();
         usersTable();
-
-        //  $('#usersTable').DataTable();
+        rowListener();
+        //selectRow();
+        /*
         $( "#tabs" ).tabs({
             collapsible: true
-        });
+        });*/
 
     } );
 }
@@ -20,7 +21,8 @@ function init(){
 
 usersTable = function() {
     var table = $('#usersTable').DataTable({
-        ajax: {
+        select: true
+        ,ajax: {
             url: "/users",
             dataSrc:''
         }
@@ -33,6 +35,39 @@ usersTable = function() {
                     {data: 'created_at'},
                     {data:'updated_at'}
                 ]
+        ,"columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 3 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 4 ],
+                "visible": false,
+                "searchable": false
+            },
+            {
+                "targets": [ 5 ],
+                "visible": false,
+                "searchable": false
+            }
+        ]
+       /* , buttons: [
+            {
+                extend: 'collection',
+                text: 'Test',
+                buttons: [
+                    { text: 'High priority'}
+                ],
+                fade: true
+            }
+        ]*/
+
     });
 
     table.on( 'xhr', function () {
@@ -43,8 +78,25 @@ usersTable = function() {
     } );
 }
 
+rowListener = function(){
+    var dataTable =  $('#usersTable').DataTable();
 
+    dataTable.on( 'select', function ( e, dt, type, indexes ) {
+        if ( type === 'row' ) {
+            var data = dataTable.rows( indexes ).data().pluck( 'id' );
 
+            // do something with the ID of the selected items
+        }
+    } );
+
+};
+/*
+selectRow = function(){
+    $('#usersTable').DataTable( {
+        select: true
+    } );
+}
+*/
 tabInit = function(){
     $(function() {
         $( "#tabs" ).tabs({

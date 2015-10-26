@@ -35,6 +35,14 @@
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css">
 <!-- DataTables -->
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.js"></script>
+<!-- DataTable Extentions-->
+<!--Select -->
+<link rel="stylesheet" href="//cdn.datatables.net/select/1.0.1/css/select.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/select/1.0.1/js/dataTables.select.min.js"></script>
+<!--Buttons -->
+<link rel="stylesheet" href="//cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/buttons/1.0.3/js/buttons.bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="//cdn.datatables.net/autofill/2.0.0/js/dataTables.autoFill.min.js"></script>
 <!--JQuery *End-->
 
 <!-- Bootstrap core CSS -->
