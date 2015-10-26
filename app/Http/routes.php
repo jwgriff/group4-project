@@ -13,26 +13,43 @@
 */
 
 //PublicController servicing public pages
-Route::get('/', 'PublicController@main');
+/*
+Route::get('/#', function(){
 
-Route::get('/investor', 'PublicController@investor');
+});
+*/
+Route::get('/public', 'PublicController@main');
+//->where('url', '[A-Za-z]+');
 
-Route::get('/founder', 'PublicController@founder');
+Route::get('/admin', 'AdminController@index');
+
+Route::get('/investor', 'InvestorController@index');
+
+Route::get('/founder', 'FounderController@index');
+
+Route::get('/aboutInvestor', 'PublicController@investor');
+
+Route::get('/aboutFounder', 'PublicController@founder');
 
 
+
+/*
+Route::controller('/admin', 'AdminController', [
+    'getHome' => 'admin.home',
+]);
+*/
 Route::get('/home',function(){
     if(Auth::user()->isAdmin()) {
-        return view('layouts.admin');
+        return redirect()->action('AdminController@index');
     }elseif(Auth::user()->isFounder()){
-        return view('layouts.founder');
+        return redirect()->action('FounderController@index');
     }elseif(Auth::user()->isInvestor()){
-        return view('layouts.investor');
+        return redirect()->action('InvestorController@index');
     }
 });
 
-/*
-Route::controller([
-    'auth' => 'Auth\AuthController',
-    'password' => 'AuthPasswordController',
-]);
-*/
+
+
+
+Route::resource('users', 'Model\UserService');
+

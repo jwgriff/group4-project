@@ -21,8 +21,8 @@
         <div id="navbar" class="navbar-collapse collapse">
             @if(Auth::check())
                 <h3>Welcome!  <strong>{{Auth::user()->name}}</strong> </h3><br>
+
                 <a href="auth/logout">Log Out</a>
-                {{--!! link_to('auth/logout',' Log Out') !!--}}
             @else
                 <form class="navbar-form navbar-right" role="form" method="POST" action="{{ url('/auth/login') }}">
                     {!! csrf_field() !!}
