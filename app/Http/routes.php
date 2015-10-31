@@ -51,5 +51,5 @@ Route::get('/home',function(){
 
 
 
-Route::resource('users', 'Model\UserService');
+Route::resource('users', 'Services\UserService');
 

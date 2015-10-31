@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     $userType = "";
     $choose =  $faker->randomDigitNotNull;
     echo $choose.' ';

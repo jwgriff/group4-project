@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -11,24 +11,24 @@ class UsersTableSeeder extends Seeder
      * @return void
      */
     public function run(){
-        App\User::create([
+        User::create([
             'name' =>'admin01',
             'email' => 'admin01@gwu.edu',
             'password' => bcrypt('admin01'),
             'is_admin' => true,
         ]);
-        App\User::create([
+        User::create([
             'name' => 'founder01',
             'email' => 'founder01@gwu.edu',
             'password' => bcrypt('founder01'),
             'is_founder' => true,
         ]);
-        App\User::create([
+        User::create([
             'name' => 'investor01',
             'email' => 'investor01@gwu.edu',
             'password' => bcrypt('investor01'),
             'is_investor' => true,
         ]);
-        factory('App\User',10)->create();
+        factory('App\Models\User',10)->create();
     }
 }
