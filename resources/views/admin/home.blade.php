@@ -35,25 +35,31 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
-                        <th>email</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>is_admin</th>
                         <th>is_founder</th>
                         <th>is_investor</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
+                        <th>CreatedDate</th>
+                        <th>UpdatedDate</th>
+                        <th>UserType</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
                         <th>id</th>
-                        <th>name</th>
-                        <th>email</th>
+                        <th>Name</th>
+                        <th>Email</th>
                         <th>is_admin</th>
                         <th>is_founder</th>
                         <th>is_investor</th>
-                        <th>created_at</th>
-                        <th>updated_at</th>
+                        <th>CreatedDate</th>
+                        <th>UpdatedDate</th>
+                        <th>UserType</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </tfoot>
             </table>
@@ -63,6 +69,22 @@
             <p>Some settings content.</p>
         </div>
     </div>
+    <div id="dialog-form" title="User Detail">
+
+        <table class="display" width="80%">
+            <tr class="dlogrow"> <th>id</th></tr>
+            <tr class="dlogrow"> <th>Name</th> </tr>
+            <tr class="dlogrow"><th>Email</th></tr>
+            <tr class="dlogrow"><th>is_admin</th></tr>
+            <tr class="dlogrow"><th>is_founder</th></tr>
+            <tr class="dlogrow"><th>is_investor</th></tr>
+            <tr class="dlogrow"><th>CreatedDate</th></tr>
+            <tr class="dlogrow"><th>UpdatedDate</th></tr>
+            <tr class="dlogrow"><th>UserType</th></tr>
+
+        </table>
+    </div>
+
     <script>
         init();
     </script>
