@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(false);
             $table->boolean('is_founder')->default(false);
             $table->boolean('is_investor')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });
