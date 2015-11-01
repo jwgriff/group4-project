@@ -44,6 +44,7 @@ class User extends Model implements AuthenticatableContract,
         'is_admin' => 'boolean',
         'is_founder' => 'boolean',
         'is_investor' => 'boolean',
+        'is_active' => 'boolean'
     ];
 
     protected $redirectTo;
@@ -75,5 +76,19 @@ class User extends Model implements AuthenticatableContract,
 
     public function isInvestor(){
         return  $this->getAttribute('is_investor');
+    }
+
+    public function isActive(){
+        return  $this->getAttribute('is_active');
+    }
+
+    public function details(){
+        if($this->isAdmin()){
+            $this->hasOne('App\Models\Admin');
+        }elseif($this->isFounder()){
+            $this->hasOne('App\Models\Founder');
+        }elseif($this->isInvestor()){
+            $this->hasOne('App\Models\Investor');
+        }
     }
 }
