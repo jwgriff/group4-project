@@ -22,7 +22,12 @@ Route::get('/public', 'PublicController@main');
 //->where('url', '[A-Za-z]+');
 
 Route::get('/admin', 'AdminController@index');
+Route::get('/admin/founder/{id}/edit', 'AdminController@editFounder');
 
+Route::get('/admin/investor/{id}/edit', 'AdminController@editInvestor');
+/*
+Route::get('/admin/admin/{id}/edit', 'AdminController@editAdmin');
+*/
 Route::get('/investor', 'InvestorController@index');
 
 Route::get('/founder', 'FounderController@index');
@@ -52,4 +57,10 @@ Route::get('/home',function(){
 
 
 Route::resource('users', 'Services\UserService');
+
+Route::resource('founder', 'Services\FounderService');
+
+Route::resource('investor', 'Services\InvestorService');
+
+Route::resource('campaign', 'Services\CampaignService');
 
