@@ -32,6 +32,7 @@ function init(){
                         {data:'updated_at'},
                         {data:'null'},
                         {data:'null'},
+                        {data:'null'},
                         {data:'null'}
                     ]
             ,"columnDefs": [
@@ -56,7 +57,7 @@ function init(){
                     "searchable": false
                 }
                 , {
-                    "targets": -3,
+                    "targets": -4,
                     "data": "",
                     "searchable": true
                     ,"render": function ( full, type, data, meta ) {
@@ -70,14 +71,35 @@ function init(){
                         }
                     }
                 }
+                , {
+                    "targets": -3,
+                    "data": "",
+                    "searchable": true
+                    ,"render": function ( full, type, data, meta ) {
+                        //stop();
+                        if ( data.is_active ==  1 ) {
+                            return 'Active';
+                        }else if (data.is_active ==  0 ) {
+                            return 'InActive';
+                        }
+                    }
+                }
                 ,{
                     targets: -2   ,
                     data: ""
                     //,defaultContent: '<button id="edit">Edit</button>'
                     ,"render": function ( full, type, data, meta ) {
+                        var userType;
+                        if ( data.is_admin ==  1 ) {
+                            userType = 'admin';
+                        }else if (data.is_founder ==  1 ) {
+                            userType = 'founder';
+                        }else if (data.is_investor ==  1  ) {
+                            userType = 'investor';
+                        }
                         stop();
                         var id = data.id;
-                        return '<button id="edit" itemId="'+data.id+'"'+'>Edit</button>' }
+                        return '<a class="btn btn-default" id="edit" href ="/admin/'+userType+'/'+data.id+'/edit"'+'>Edit</a>' }
                 }
                 ,{
                     targets: -1   ,
@@ -86,7 +108,7 @@ function init(){
                 ,"render": function ( full, type, data, meta ) {
                     stop();
                     var id = data.id;
-                    return '<button id="delete" itemId="'+data.id+'"'+'>Delete</button>'  }
+                    return '<button id="delete" class="btn btn-default" itemId="'+data.id+'"'+'>Delete</button>'  }
                 }
 
             ]
@@ -131,10 +153,8 @@ function init(){
     dataTable.on( 'click', 'button', function (e, dt, type, indexes) {
         var data = dataTable.row( this ).id();
         var id = e.toElement.attributes[1].nodeValue;
-        if(e.toElement.id == 'edit'){
-            alert( "EDIT ItemId= "+ id);
-        } else if(e.toElement.id == 'delete'){
-            alert( "DELETE ItemId= "+ id);
+         if(e.toElement.id == 'delete'){
+            alert( "Are You Sure to DELETE ItemId= "+ id);
         }
 
 
