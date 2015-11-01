@@ -43,6 +43,7 @@
                         <th>CreatedDate</th>
                         <th>UpdatedDate</th>
                         <th>UserType</th>
+                        <th>Status</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -58,6 +59,7 @@
                         <th>CreatedDate</th>
                         <th>UpdatedDate</th>
                         <th>UserType</th>
+                        <th>Status</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
