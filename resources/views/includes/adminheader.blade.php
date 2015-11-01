@@ -16,7 +16,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><h1>Admin Portal</h1></a>
+            <a class="navbar-brand" href="/public"><h1>Admin Portal</h1></a>
         </div>
     </div>
     <div class="container">
