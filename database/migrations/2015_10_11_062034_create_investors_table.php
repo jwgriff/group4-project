@@ -23,6 +23,8 @@ class CreateInvestorsTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+            $table->string('fname');
+            $table->string('lname');
             $table->string('profile_name');
             $table->string('street');
             $table->string('city');

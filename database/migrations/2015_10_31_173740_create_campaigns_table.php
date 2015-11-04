@@ -23,10 +23,10 @@ class CreateCampaignsTable extends Migration
             $table->foreign('founder_id')
                 ->references('id')
                 ->on('founders');
-            $table->integer('investor_id')->unsigned();
+            /*$table->integer('investor_id')->unsigned();
             $table->foreign('investor_id')
                 ->references('id')
-                ->on('investors');
+                ->on('investors');*/
             //Attributes
             $table->boolean('is_active');
             $table->string('campaign_name');
@@ -39,7 +39,25 @@ class CreateCampaignsTable extends Migration
             $table->integer('acct_number');
 
         });
+    /*
+        Schema::create('campaign_investor', function (Blueprint $table) {
 
+            $table->integer('campaign_id')->unsigned()->index();
+            $table->foreign('campaign_id')
+                    ->references('id')
+                    ->on('campaigns');
+
+            $table->integer('investor_id')->unsigned()->index();
+            $table->foreign('investor_id')
+                    ->references('id')
+                    ->on('investors');
+
+            $table->string('invst_label');
+            $table->float('invst_amount', 8, 2);
+            $table->timestamps();
+
+        });
+    */
 
     }
 
@@ -51,5 +69,6 @@ class CreateCampaignsTable extends Migration
     public function down()
     {
         Schema::drop('campaigns');
+        //Schema::drop('campaign_investor');
     }
 }

@@ -22,6 +22,8 @@ class CreateFoundersTable extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users');
+            $table->string('fname');
+            $table->string('lname');
             $table->string('company_name');
             $table->string('company_street');
             $table->string('company_city');
