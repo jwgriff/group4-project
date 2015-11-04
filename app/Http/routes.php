@@ -12,37 +12,39 @@
 
 */
 
-//PublicController servicing public pages
-/*
-Route::get('/#', function(){
 
+/*
+Route::get('/', function(){
+    return redirect()->action('PublicController@main');
 });
 */
+
+//PublicController servicing public pages
 Route::get('/public', 'PublicController@main');
+Route::get('/aboutInvestor', 'PublicController@investor');
+Route::get('/aboutFounder', 'PublicController@founder');
 //->where('url', '[A-Za-z]+');
 
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/founder/{id}/edit', 'AdminController@editFounder');
 
-Route::get('/admin/investor/{id}/edit', 'AdminController@editInvestor');
-/*
-Route::get('/admin/admin/{id}/edit', 'AdminController@editAdmin');
-*/
+//Administration Controller
+Route::get('/admin', 'AdminController@index');
+Route::get('/admin/edit/{userType}/{id}', 'AdminController@edit');
+
+Route::get('/admin/delete/{userType}/{id}', 'AdminController@delete');
+
 Route::get('/investor', 'InvestorController@index');
 
 Route::get('/founder', 'FounderController@index');
 
-Route::get('/aboutInvestor', 'PublicController@investor');
 
-Route::get('/aboutFounder', 'PublicController@founder');
+//Model Services Controllers for CRUD Operations
+Route::resource('users', 'Services\UserService');
+Route::resource('founder', 'Services\FounderService');
+Route::resource('investor', 'Services\InvestorService');
+Route::resource('campaign', 'Services\CampaignService');
 
 
-
-/*
-Route::controller('/admin', 'AdminController', [
-    'getHome' => 'admin.home',
-]);
-*/
+//After-LogIn: Redirect to Appropriate Controller
 Route::get('/home',function(){
     if(Auth::user()->isAdmin()) {
         return redirect()->action('AdminController@index');
@@ -56,11 +58,4 @@ Route::get('/home',function(){
 
 
 
-Route::resource('users', 'Services\UserService');
-
-Route::resource('founder', 'Services\FounderService');
-
-Route::resource('investor', 'Services\InvestorService');
-
-Route::resource('campaign', 'Services\CampaignService');
 

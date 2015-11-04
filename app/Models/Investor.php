@@ -12,12 +12,11 @@ class Investor extends Model
         'city', 'state', 'zip', 'phone', 'invst_objective', 'invst_amount_total'];
 
     public function userProfile(){
-        $this->belongsTo('App\Models\User');
+       return $this->belongsTo('App\Models\User');
     }
 
     public function investments(){
-        $this->belongsToMany('App\Models\Campaign')
-                ->wherePivot('invst_amount_campaign')
-                ->withTimestamps();
+      return  $this->belongsToMany('App\Models\Campaign')
+                    ->withTimestamps();
     }
 }

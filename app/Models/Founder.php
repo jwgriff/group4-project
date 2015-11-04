@@ -12,11 +12,11 @@ class Founder extends Model{
         'company_city', 'company_state', 'company_zip', 'company_industry', 'company_mktcap'];
 
     public function userProfile(){
-        $this->belongsTo('App\Models\User');
+      return  $this->belongsTo('App\Models\User');
     }
 
     public function campaigns(){
-        $this->hasMany('App\Models\Campaign');
+      return  $this->hasMany('App\Models\Campaign');
     }
 
 }

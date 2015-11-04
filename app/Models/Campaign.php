@@ -14,6 +14,11 @@ class Campaign extends Model
 
     protected $cast = ['is_active' => 'boolean'];
 
+    public function isActive(){
+        return $this->getAttribute('is_active');
+    }
+
+
 
     public function founder(){
         $this->belongsTo('App\Models\Founder');
@@ -21,12 +26,9 @@ class Campaign extends Model
 
     public function investors(){
         $this->belongsToMany('App\Models\Investor')
-            ->wherePivot('invst_amount_campaign')
-            ->withTimestamps();
+                ->withTimestamps();
     }
 
-    public function isActive(){
-        return $this->getAttribute('is_active');
-    }
+
 
 }

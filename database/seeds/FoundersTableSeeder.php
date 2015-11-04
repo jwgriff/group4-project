@@ -22,6 +22,8 @@ class FoundersTableSeeder extends Seeder
             //TODO: change faker state to country
             Founder::create([
                     'user_id' => $id,
+                    'fname' => $faker->firstName,
+                    'lname' => $faker->lastName,
                     'company_name' => $faker->company,
                     'company_street' => $faker->streetAddress,
                     'company_city' => $faker->city,

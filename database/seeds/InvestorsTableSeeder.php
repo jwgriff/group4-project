@@ -34,6 +34,8 @@ class InvestorsTableSeeder extends Seeder
             //factory('App\Models\Investor', $id)->create();
             Investor::create([
                     'user_id' => $id,
+                    'fname' => $faker->firstName,
+                    'lname' => $faker->lastName,
                     'profile_name' => $faker->colorName,
                     'street' => $faker->streetAddress,
                     'city' => $faker->city,

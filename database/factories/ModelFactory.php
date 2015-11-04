@@ -24,7 +24,7 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
     }
     //echo $userType.'  ';
     return [
-        'name' => $faker->name,
+        'name' => $faker->userName,
         'email' => $faker->email,
         'password' => bcrypt(str_random(10)),
         'is_admin' => ($userType== 'is_admin'? true : false),//($var > 2 ? true : false)

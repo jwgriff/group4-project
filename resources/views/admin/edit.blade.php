@@ -16,16 +16,16 @@
             {!! Form::model($founder ) !!}
                  @include('founders.form')
             {!! Form::close() !!}
-        <a class="btn btn-default" id="edit" href ="/admin">Update Founder</a>
+            <a class="btn btn-default" id="edit" href ="{{action('AdminController@index')}}">Update Founder</a>
         @elseif($userType == 'Investor')
                 <!--INVESTOR MODEL FORM-->
             {!! Form::model($investor ) !!}
                  @include('investors.form')
             {!! Form::close() !!}
 
-        <a class="btn btn-default" id="edit" href ="/admin">Update Investor</a>
+            <a class="btn btn-default" id="edit" href ="{{action('AdminController@index')}}">Update Investor</a>
         @endif
-        <a class="btn btn-default" id="edit" href ="/admin">Return Admin Home</a>
+        <a class="btn btn-default" id="edit" href ="{{action('AdminController@index')}}">Return Admin Home</a>
     </div>
 
 @stop

@@ -20,21 +20,36 @@ class AdminController extends Controller
     }
 
 
-    public function editFounder($id){
-        $founder = Founder::findOrNew($id);
-        return view('admin.edit', ['founder'=> Founder::findOrNew($id),
-                                    'userType'=> 'Founder']);
+
+
+    public function edit($userType, $id){
+        //$investor = User::findOrNew($id)->details()->getEager()->all()[0];
+        //dd($userType, $id);
+        function getUserType ($userType)
+        {   define('founder', 'investor');
+            $temp = ['founder' => 'Founder', 'investor' => 'Investor', 'admin' => 'Admin'];
+            return $temp[$userType];
+        }
+
+        return view('admin.edit', [ $userType => User::findOrNew($id)->details()->getEager()->all()[0],
+            'userType' => getUserType ($userType) ]);
     }
 
-    public function editInvestor($id){
-        //$investor = Investor::findOrNew($id);
-        return view('admin.edit', ['investor'=> Investor::findOrNew($id),
-                                    'userType'=> 'Investor']);
-    }
-    /*
-        public function editAdmin($id){
-            $returnModel = Founder::findOrNew($id);
-            return view('admin.edit', compact('$returnModel'));
+
+    public function delete($userType, $id){
+        //$investor = User::findOrNew($id)->details()->getEager()->all()[0];
+        //dd($userType, $id);
+        function getUserType ($userType)
+        {   define('founder', 'investor');
+            $temp = ['founder' => 'Founder', 'investor' => 'Investor', 'admin' => 'Admin'];
+            return $temp[$userType];
         }
-    */
+
+        //return view('admin.edit', [ $userType => User::findOrNew($id)->details()->getEager()->all()[0],
+        //    'userType' => getUserType ($userType) ]);
+    }
+
+
+
+
 }

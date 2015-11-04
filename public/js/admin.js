@@ -99,7 +99,7 @@ function init(){
                         }
                         stop();
                         var id = data.id;
-                        return '<a class="btn btn-default" id="edit" href ="/admin/'+userType+'/'+data.id+'/edit"'+'>Edit</a>' }
+                        return '<a class="btn btn-default" id="edit" href ="/admin/edit/'+userType+'/'+data.id+'"'+'>Edit</a>' }
                 }
                 ,{
                     targets: -1   ,
@@ -117,7 +117,7 @@ function init(){
 
         table.on( 'xhr', function () {
             var json = table.ajax.json();
-            //console.log( "JSON= " + JSON.stringify(json) );
+            console.log( "JSON= " + JSON.stringify(json) );
         }).on( 'error.dt', function ( e, settings, techNote, message ) {
             console.log( 'An error has been reported by DataTables: ', message );
         } );
