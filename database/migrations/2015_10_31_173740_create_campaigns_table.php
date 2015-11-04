@@ -19,10 +19,12 @@ class CreateCampaignsTable extends Migration
 
             //Developer Created
             //Foreign Key Constraints
-            $table->integer('founder_id')->unsigned();
+            $table->unsignedInteger('founder_id')->nullable();
             $table->foreign('founder_id')
                 ->references('id')
-                ->on('founders');
+                ->on('founders')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             /*$table->integer('investor_id')->unsigned();
             $table->foreign('investor_id')
                 ->references('id')
