@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Services;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Campaign;
 
 class CampaignService extends Controller
 {
@@ -15,7 +16,9 @@ class CampaignService extends Controller
      */
     public function index()
     {
-        //
+        $campaigns = Campaign::all();
+        return $campaigns;
+
     }
 
     /**
