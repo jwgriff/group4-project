@@ -5,22 +5,28 @@
 
 function init(){
     $(document).ready( function () {
-        usersTable();
+       usersTable();
         rowListener();
         tabInit();
         dialog();
+        msgFadeOut();
+        campaignTable();
+        //$('table.display').DataTable();
         //modalInit();
 
     } );
 }
 
     usersTable = function() {
-        var table = $('#usersTable').DataTable({
+        var usrTable = $('#usersTable').DataTable({
             select: true
             ,deferRender: true
             ,ajax: {
                 url: "/users",
                 dataSrc:''
+                ,xhrFields: {
+                    withCredentials: true
+                }
             }
             ,columns: [ {data: 'id'},
                         {data:'name'},
@@ -97,27 +103,37 @@ function init(){
                         }else if (data.is_investor ==  1  ) {
                             userType = 'investor';
                         }
-                        stop();
+                        //stop();
                         var id = data.id;
-                        return '<a class="btn btn-default" id="edit" href ="/admin/edit/'+userType+'/'+data.id+'"'+'>Edit</a>' }
+                        return '<a class="btn btn-default" id="edit" href ="/admin/edit/'+userType+'/'+data.id+'"'+'>Edit</a>'
+                    }
                 }
                 ,{
                     targets: -1   ,
                     data: ""
                     //,defaultContent: '<button id="delete">Delete</button>'
                 ,"render": function ( full, type, data, meta ) {
-                    stop();
-                    var id = data.id;
-                    return '<button id="delete" class="btn btn-default" itemId="'+data.id+'"'+'>Delete</button>'  }
+                        var userType;
+                        if ( data.is_admin ==  1 ) {
+                            userType = 'admin';
+                        }else if (data.is_founder ==  1 ) {
+                            userType = 'founder';
+                        }else if (data.is_investor ==  1  ) {
+                            userType = 'investor';
+                        }
+                        stop();
+                        var id = data.id;
+                        return '<a class="btn btn-default" id="delete" href ="/admin/delete/'+userType+'/'+id+'"'+'>Delete</a>'
+                    }
                 }
 
             ]
 
         });
 
-        table.on( 'xhr', function () {
-            var json = table.ajax.json();
-            console.log( "JSON= " + JSON.stringify(json) );
+        usrTable.on( 'xhr', function () {
+            var json = usrTable.ajax.json();
+            //console.log( "USR-JSON= " + JSON.stringify(json) );
         }).on( 'error.dt', function ( e, settings, techNote, message ) {
             console.log( 'An error has been reported by DataTables: ', message );
         } );
@@ -129,12 +145,12 @@ function init(){
     };
 
     rowListener = function(){
-        var dataTable =  $('#usersTable').DataTable();
+        var usrTable =  $('#usersTable').DataTable();
 
-        dataTable.on( 'select', function ( e, dt, type, indexes ) {
+        usrTable.on( 'select', function ( e, dt, type, indexes ) {
         if ( type === 'row' ) {
-            //var data = dataTable.rows( indexes ).data().pluck( 'id' );
-            var data =dataTable.row(indexes).data();
+            //var data = usrTable.rows( indexes ).data().pluck( 'id' );
+            var data =usrTable.row(indexes).data();
 
             $("#dialog-form").dialog(/*{
 
@@ -150,8 +166,8 @@ function init(){
     } );
 
 
-    dataTable.on( 'click', 'button', function (e, dt, type, indexes) {
-        var data = dataTable.row( this ).id();
+    usrTable.on( 'click', 'button', function (e, dt, type, indexes) {
+        var data = usrTable.row( this ).id();
         var id = e.toElement.attributes[1].nodeValue;
          if(e.toElement.id == 'delete'){
             alert( "Are You Sure to DELETE ItemId= "+ id);
@@ -178,8 +194,8 @@ function init(){
     };
 
     debugtest = function(){
-        var table = $('#usersTable').DataTable();
-        console.log( 'Data source JSON: '+table.ajax.json() );
+        var usrTable = $('#usersTable').DataTable();
+        console.log( 'Data source JSON: '+usrTable.ajax.json() );
     };
 
     dialog =function() {
@@ -200,50 +216,96 @@ function init(){
             }*/
         });
     };
-//---------------------------------
 
- //$(
-    function validateFields() {
-     //var dialog, form,
+    msgFadeOut = function(){
+        $("#alert").fadeOut( 5000, function() {
+            // Animation complete.
+        });
+    };
+//---------------------------------User Tab: END
 
-     // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-         emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-         name = $("#name"),
-         email = $("#email"),
-         password = $("#password"),
-         allFields = $([]).add(name).add(email).add(password),
-         tips = $(".validateTips");
-    }
+//START---------------------------------
+/*
+ Campaign Tab
+ */
 
-    function updateTips( t ) {
-        tips
-            .text( t )
-            .addClass( "ui-state-highlight" );
-        setTimeout(function() {
-            tips.removeClass( "ui-state-highlight", 1500 );
-        }, 500 );
-    }
-
-    function checkLength( o, n, min, max ) {
-        if ( o.val().length > max || o.val().length < min ) {
-            o.addClass( "ui-state-error" );
-            updateTips( "Length of " + n + " must be between " +
-                min + " and " + max + "." );
-            return false;
-        } else {
-            return true;
+campaignTable = function() {
+    var cmpgnTable = $('#campaignTable').DataTable({
+        select: true
+        ,deferRender: true
+        ,ajax: {
+            url: "/campaign"
+            ,dataSrc:''
+            ,xhrFields: {
+                withCredentials: true
+            }
         }
-    }
+        ,columns: [
+            {data: 'id'},
+            {data:'campaign_name'},
+            {data:'description'},
+            {data:'start_date'},
+            {data:'end_date'},
+            {data:'target_goal'},
+            {data:'target_current'},
+            {data:'acct_number'},
+            {data:'is_active'}
+        ]
+        ,"columnDefs": [
+            {
+                "targets": [ 0 ],
+                "visible": false,
+                "searchable": false
+            }
+            ,{
+                "targets": -3,
+                "data": "",
+                "searchable": true
+                ,"render": function ( full, type, data, meta ) {
+                    //stop();
+                    if ( data.is_active ==  1 ) {
+                        return 'Active';
+                    }else if (data.is_active ==  0 ) {
+                        return 'InActive';
+                    }
+                }
+            }
+            ,{
+                targets: -2   ,
+                data: ""
+                //,defaultContent: '<button id="edit">Edit</button>'
+                ,"render": function ( full, type, data, meta ) {
+                    //stop();
+                    var id = data.id;
+                    return '<a class="btn btn-default" id="edit" href ="/admin/edit/campaign/'+data.id+'"'+'>Edit</a>'
+                }
+            }
+            ,{
+                targets: -1   ,
+                data: ""
+                //,defaultContent: '<button id="delete">Delete</button>'
+                ,"render": function ( full, type, data, meta ) {
+                    stop();
+                    var id = data.id;
+                    return '<a class="btn btn-default" id="delete" href ="/admin/delete/campaign/'+id+'"'+'>Delete</a>'
+                }
+            }
 
-    function checkRegexp( o, regexp, n ) {
-        if ( !( regexp.test( o.val() ) ) ) {
-            o.addClass( "ui-state-error" );
-            updateTips( n );
-            return false;
-        } else {
-            return true;
-        }
-    }
+        ]
+
+    });
+
+    cmpgnTable.on( 'xhr', function () {
+        var json = cmpgnTable.ajax.json();
+        //console.log( "CMPGN-JSON= " + JSON.stringify(json) );
+    }).on( 'error.dt', function ( e, settings, techNote, message ) {
+        console.log( 'An error has been reported by DataTables: ', message );
+    } );
+
+};
+
+//-------------------------------------------CAMPAIGN TABLE: END
+
 
     function addUser() {
         var valid = true;
@@ -267,3 +329,4 @@ function init(){
         }
         return valid;
     }
+
