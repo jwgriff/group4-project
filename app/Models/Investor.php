@@ -8,7 +8,7 @@ class Investor extends Model
 {
     protected $table = 'investors';
 
-    protected $fillable = ['user_id', 'profile_name', 'street',
+    protected $fillable = ['user_id', 'fname','lname', 'profile_name', 'street',
         'city', 'state', 'zip', 'phone', 'invst_objective', 'invst_amount_total'];
 
     public function userProfile(){
@@ -17,6 +17,8 @@ class Investor extends Model
 
     public function investments(){
       return  $this->belongsToMany('App\Models\Campaign')
-                    ->withTimestamps();
+                    ->withPivot('invst_label', 'invst_amount')
+                    ->withTimestamps()
+                    ->getEager();
     }
 }
