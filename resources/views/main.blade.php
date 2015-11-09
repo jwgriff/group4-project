@@ -19,6 +19,8 @@
             </header>
 
             <div id="main" class="row">
+                @include('includes.flashmsg')
+                @include('errors.list')
                 @yield('content')
             </div>
 
