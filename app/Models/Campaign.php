@@ -21,11 +21,12 @@ class Campaign extends Model
 
 
     public function founder(){
-        $this->belongsTo('App\Models\Founder');
+        return $this->belongsTo('App\Models\Founder')
+            ->withTimestamps();
     }
 
     public function investors(){
-        $this->belongsToMany('App\Models\Investor')
+       return $this->belongsToMany('App\Models\Investor')
                 ->withTimestamps();
     }
 

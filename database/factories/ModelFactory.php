@@ -43,14 +43,18 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
         //var_dump($investorIds);
         return [
             'user_id' => $id,
+            'fname' => $faker->firstName,
+            'lname' => $faker->lastName,
             'profile_name' => $faker->colorName,
             'street' => $faker->streetAddress,
             'city' => $faker->city,
-            'state' => $faker->country,
+            'state' => $faker->state,
             'zip' => $faker->postcode,
             'phone_number' => $faker->phoneNumber,
             'invst_objective' => $faker->sentence(),
-            'invst_amount_total' => $faker->randomFloat(2, 100.00, 100,000.00)
+            'invst_amount_total' => $faker->randomFloat($nbMaxDecimals = 2,
+                                                        $min = 100.00,
+                                                        $max = 100000.00)
 
         ];
     //}

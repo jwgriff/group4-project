@@ -6,5 +6,6 @@
 /vendor
 .vagrant
 workspace.xml
-.idea
+.idea/dataSources.xml
+.idea/dataSources.ids
 
