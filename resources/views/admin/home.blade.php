@@ -30,6 +30,8 @@
                         <th>Target Current</th>
                         <th>Acct Number</th>
                         <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -43,6 +45,8 @@
                         <th>Target Current</th>
                         <th>Acct Number</th>
                         <th>Status</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </tfoot>
             </table>

@@ -28,9 +28,16 @@ Route::get('/aboutFounder', 'PublicController@founder');
 
 //Administration Controller
 Route::get('/admin', 'AdminController@index');
+
+Route::get('/admin/details/{userType}/{id}', 'AdminController@details');
+
 Route::get('/admin/edit/{userType}/{id}', 'AdminController@edit');
 
 Route::get('/admin/delete/{userType}/{id}', 'AdminController@delete');
+
+Route::post('/admin/update/{userType}/{id}', 'AdminController@update');
+
+Route::get('/admin/details/{userType}/{id}', 'AdminController@details');
 
 Route::get('/investor', 'InvestorController@index');
 
