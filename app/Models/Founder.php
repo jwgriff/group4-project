@@ -8,7 +8,7 @@ class Founder extends Model{
 
     protected $table = 'founders';
 
-    protected $fillable = ['user_id', 'company_name', 'company_street',
+    protected $fillable = ['user_id', 'fname', 'lname','company_name', 'company_street',
         'company_city', 'company_state', 'company_zip', 'company_industry', 'company_mktcap'];
 
     public function userProfile(){
@@ -16,7 +16,8 @@ class Founder extends Model{
     }
 
     public function campaigns(){
-      return  $this->hasMany('App\Models\Campaign');
+      return  $this->hasMany('App\Models\Campaign')
+          ->getEager();
     }
 
 }

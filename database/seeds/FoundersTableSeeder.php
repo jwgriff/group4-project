@@ -15,7 +15,8 @@ class FoundersTableSeeder extends Seeder
     {
         $faker = Faker::create();
         $foundersIds = App\Models\User::all()->where('is_founder', 1)->lists('id');
-        var_dump($foundersIds);
+        //echo('Founder Ids');
+        //var_dump($foundersIds);
 
         foreach($foundersIds as $id) {
             //factory('App\Models\Investor', $id)->create();
