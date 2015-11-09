@@ -18,10 +18,13 @@
             <header class="row">
                 @include('includes.adminheader')
             </header>
-
-            <div id="main" class="row">
-                @yield('content')
-            </div>
+            <!--div class="container"-->
+                <div id="main" class="row">
+                    @include('includes.flashmsg')
+                    @include('errors.list')
+                    @yield('content')
+                </div>
+            <!--/div-->
 
             <footer class="row">
                 @include('includes.footer')
