@@ -22,7 +22,10 @@
             @if(Auth::check())
                 <h3>Welcome!  <strong>{{Auth::user()->name}}</strong> </h3><br>
 
-                <a href="auth/logout">Log Out</a>
+                <a class="btn btn-default navbar-right" href="auth/logout">Log Out</a>
+                @if(Auth::user()->isAdmin())
+                    <a class="btn btn-default navbar-left" id="adminHomeBtn" href ="{{action('AdminController@index')}}">Return Admin Home</a>
+                @endif
             @else
                 <form class="navbar-form navbar-right" role="form" method="POST" action="{{ url('/auth/login') }}">
                     {!! csrf_field() !!}
@@ -39,27 +42,6 @@
                 </form>
             @endif
         </div><!--/.navbar-collapse -->
-        @if (count($errors) > 0)
-            <div class="alert alert-danger alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        @if(Session::has('message'))
-            <div class="alert alert-info alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <strong>Messages!</strong><br><br>
-                <ul>
-                   {{Session::get('message')}}
-                </ul>
-            </div>
-        @endif
-
     </div>
 </nav>
 
