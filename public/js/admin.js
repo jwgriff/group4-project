@@ -105,7 +105,7 @@ function init(){
                         }
                         //stop();
                         var id = data.id;
-                        return '<a class="btn btn-default" id="edit" href ="/admin/edit/'+userType+'/'+data.id+'"'+'>Edit</a>'
+                        return '<a class="btn btn-default" id="edit" href ="/admin/details/'+userType+'/'+data.id+'"'+'>Detail</a>'
                     }
                 }
                 ,{
@@ -249,7 +249,9 @@ campaignTable = function() {
             {data:'target_goal'},
             {data:'target_current'},
             {data:'acct_number'},
-            {data:'is_active'}
+            {data:'is_active'},
+            {data:'null'},
+            {data:'null'}
         ]
         ,"columnDefs": [
             {
