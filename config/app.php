@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -145,6 +145,8 @@ return [
         Bestmomo\Scafold\ScafoldServiceProvider::class,
         //wef: Form Helper for Live Templates
         Illuminate\Html\HtmlServiceProvider::class,
+        //wef: Flash Messaging
+        Laracasts\Flash\FlashServiceProvider::class,
 
 
 
@@ -208,6 +210,7 @@ return [
         'Debugbar' => 'Barryvdh\Debugbar\Facade',//wef: Debugging Support
         'Form'     => Illuminate\Html\FormFacade::class,//wef: Form Helper
         'Html'     => Illuminate\Html\HtmlFacade::class,//wef: Html Helper
+        'Flash'    => Laracasts\Flash\Flash::class,//wef: Flash Messaging
 
 
 
