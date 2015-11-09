@@ -22,7 +22,15 @@
     <div class="container">
         @if(Auth::check())
             <h3>Welcome!  <strong>{{Auth::user()->name}}</strong> </h3><br>
-            <a href="auth/logout">Log Out</a>
+            <a class="btn btn-default navbar-right" href="auth/logout">Log Out</a>
+
+            @unless(URL::current()== 'http://group4.app/admin')
+                <a class="btn btn-default navbar-left" href="{{action('PublicController@main')}}" role="button">&raquo;Main Page </a>
+                <a class="btn btn-default navbar-header" href="{{action('AdminController@index')}}" role="button">Admin Home&raquo; </a>
+             @endunless
+            @if(URL::current()== 'http://group4.app/admin')
+                <a class="btn btn-default navbar-left" href="{{action('PublicController@main')}}" role="button">&raquo;Main Page </a>
+            @endif
         @endif
     </div>
 
