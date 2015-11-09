@@ -12,23 +12,22 @@ class InvestorsTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {   /*
-        Investor::create([
-            'user_id' => 3,
-            'profile_name' => 'Founder01 First Profile',
-            'street' => '01 Main St.',
-            'city' => 'Washington',
-            'state' => 'DC',
-            'zip' => '01010',
-            'invst_objective' => 'Test Founder Table',
-            'invst_amount_total' => 100.00
+    {
 
-        ]);
-        */
+ /*
+[ErrorException]
+Argument 1 passed to Illuminate\Database\Grammar::parameterize() must be of the
+type array, string given, called in /home/vagrant/group4-project/vendor/laravel/framework/
+src/Illuminate/Database/Query/Grammars/Grammar.php on line 654 and defined
 
+        foreach($investorIds as $id) {
+            factory('App\Models\Investor',10, $id)->create();
+        }
+ */
         $faker = Faker::create();
         $investorIds = App\Models\User::all()->where('is_investor', 1)->lists('id');
-        var_dump($investorIds);
+        //echo('Investor Ids');
+        //var_dump($investorIds);
 
         foreach($investorIds as $id) {
             //factory('App\Models\Investor', $id)->create();
