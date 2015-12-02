@@ -84,7 +84,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function details(){
         if($this->isAdmin()){
-           return $this->hasOne('App\Models\Admin');
+           return $this->hasOne('App\Models\Admin')->getEager();
         }elseif($this->isFounder()){
            return $this->hasOne('App\Models\Founder')->getEager();
         }elseif($this->isInvestor()){
