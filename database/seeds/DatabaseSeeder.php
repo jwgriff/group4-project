@@ -16,11 +16,11 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(UsersTableSeeder::class);
+        $this->call(AdminTableSeeder::class);
         $this->call(InvestorsTableSeeder::class);
         $this->call(FoundersTableSeeder::class);
         $this->call(CampaignsTableSeeder::class);
         $this->call(CampaignInvestorPTableSeeder::class);
-
 
         Model::reguard();
     }
