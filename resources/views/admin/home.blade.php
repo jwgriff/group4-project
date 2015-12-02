@@ -97,18 +97,7 @@
         </div>
     </div>
     <div id="dialog-form" title="User Detail">
-
-        <table class="display" width="80%">
-            <tr class="dlogrow"> <th>id</th></tr>
-            <tr class="dlogrow"> <th>Name</th> </tr>
-            <tr class="dlogrow"><th>Email</th></tr>
-            <tr class="dlogrow"><th>is_admin</th></tr>
-            <tr class="dlogrow"><th>is_founder</th></tr>
-            <tr class="dlogrow"><th>is_investor</th></tr>
-            <tr class="dlogrow"><th>CreatedDate</th></tr>
-            <tr class="dlogrow"><th>UpdatedDate</th></tr>
-            <tr class="dlogrow"><th>UserType</th></tr>
-
+        <table id ="dialogTable" class="display" width="80%">
         </table>
     </div>
     <script>
