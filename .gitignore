@@ -8,4 +8,15 @@
 workspace.xml
 .idea/dataSources.xml
 .idea/dataSources.ids
+.idea/encodings.xml
+.idea/deployment.xml
+.idea/laravel-plugin.xml
+.idea/php.xml
+.idea/dictionaries/weford.xml
+
+_ide_helper.php
+_ide_helper_models.php
+
+
+
 
