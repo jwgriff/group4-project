@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Founder;
 use App\Models\Investor;
 use App\Models\Campaign;
@@ -21,7 +22,10 @@ class AdminController extends Controller
 
     public function edit($userType, $id){
         $temp = null;
-        if($userType == 'founder'){
+        if($userType == 'admin'){
+            $temp = Admin::findOrFail($id);
+
+        }elseif($userType == 'founder'){
             $temp = Founder::findOrFail($id);
 
         }elseif($userType == 'investor'){
@@ -38,7 +42,11 @@ class AdminController extends Controller
     public function delete($userType, $id, Request $req ){
         $temp = null;
         $profile = null;
-        if($userType == 'founder'){
+        if($userType == 'admin'){
+            //$profile=  Founder::findOrFail($id)->toArray();
+            //dd($profile);
+            Admin::findOrFail($id)->delete();
+        }elseif($userType == 'founder'){
             //$profile=  Founder::findOrFail($id)->toArray();
             //dd($profile);
             Founder::findOrFail($id)->delete();
@@ -46,8 +54,12 @@ class AdminController extends Controller
             //$profile=  Investor::findOrFail($id)->toArray();
             //dd($profile);
             Investor::findOrFail($id)->delete();
+        }elseif($userType = 'campaign'){
+            //$profile=  Investor::findOrFail($id)->toArray();
+            //dd($profile);
+            Campaign::findOrFail($id)->delete();
         }
-        flash()->success('Object Deleted');
+        flash()->success($userType.' Deleted');
 
         $users = User::all();
         return view('admin.home', compact('users'));
@@ -55,7 +67,11 @@ class AdminController extends Controller
 
     public function update($userType, $id, Request $req){
         $temp = null;
-        if($userType == 'founder'){
+        if($userType == 'admin'){
+            Admin::findOrNew($id)->update($req->all());
+            $temp = Admin::findOrNew($id);
+
+        }elseif($userType == 'founder'){
             Founder::findOrNew($id)->update($req->all());
             $temp = Founder::findOrNew($id);
 
@@ -77,7 +93,14 @@ class AdminController extends Controller
         $user = User::findOrFail($id);
         $temp = $user->details()->all()[0];
         $cmpginvt = null;
-        if($userType == 'founder') {
+
+        if($userType == 'admin') {
+            return view('admin.detailsAdmin', [ 'user' => $user,
+                                                $userType => $temp,
+                                                'userType' =>
+                                                    $this->getUserType($userType)]);
+
+        }elseif($userType == 'founder') {
             $cmpginvt = Founder::findOrFail($temp->id)->campaigns();
             return view('admin.detailsFndr', [  'user' => $user,
                                                 $userType => $temp,
@@ -97,11 +120,16 @@ class AdminController extends Controller
 
     }
 
-
+    public function ajaxUser($userType, $id){
+        $user = User::findOrFail($id);
+        $temp = $user->details()->all()[0];
+        return response()->json($temp);
+    }
 
     private function getUserType ($userType)
-    {   define('founder', 'investor', 'campaign');
-        $temp = ['founder' => 'Founder', 'investor' => 'Investor','campaign' => 'Campaign'];
+    {   //define('founder', 'investor', 'campaign', 'admin');
+        $temp = ['founder' => 'Founder', 'investor' => 'Investor',
+                 'campaign' => 'Campaign', 'admin' => 'Administrator'];
         return $temp[$userType];
     }
 

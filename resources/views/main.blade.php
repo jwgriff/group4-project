@@ -10,6 +10,7 @@
 <html>
     <head>
         @include('includes.head')
+        <script src="../js/main.js"></script>
     </head>
     <body>
         <div class="container">
