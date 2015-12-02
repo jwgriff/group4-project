@@ -27,6 +27,7 @@
             @unless(URL::current()== 'http://group4.app/admin')
                 <a class="btn btn-default navbar-left" href="{{action('PublicController@main')}}" role="button">&raquo;Main Page </a>
                 <a class="btn btn-default navbar-header" href="{{action('AdminController@index')}}" role="button">Admin Home&raquo; </a>
+                <a class="btn btn-default navbar-header" href="{{URL::previous()}}">Back&raquo; </a>
              @endunless
             @if(URL::current()== 'http://group4.app/admin')
                 <a class="btn btn-default navbar-left" href="{{action('PublicController@main')}}" role="button">&raquo;Main Page </a>
