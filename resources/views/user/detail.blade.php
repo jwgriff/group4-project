@@ -36,8 +36,8 @@
             <td>{{ $user->is_investor }}</td>
             <td>{{ $user->is_active }}</td>
             <!--td><a class="btn btn-default" id="listSongBtn">List Songs</a></td-->
-            <td><a class="btn btn-default" id="editBtn" href='admin/founder/edit/{!! $user->id !!}'>Edit</a></td>
-            <td><a class="btn btn-default" id="deleteBtn"  href='admin/founder/delete/{!! $user->id !!}'>Delete</a></td>
+            <td><a class="btn btn-default" id="editBtn" href='admin/user/edit/{!! $user->id !!}'>Edit</a></td>
+            <td><a class="btn btn-default" id="deleteBtn"  href='admin/user/delete/{!! $user->id !!}'>Delete</a></td>
         </tr>
         {{--  @endforeach --}}
         </tbody>
