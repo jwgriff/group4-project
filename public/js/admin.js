@@ -8,11 +8,8 @@ function init(){
        usersTable();
         rowListener();
         tabInit();
-        dialog();
         msgFadeOut();
         campaignTable();
-        //$('table.display').DataTable();
-        //modalInit();
 
     } );
 }
@@ -95,14 +92,7 @@ function init(){
                     data: ""
                     //,defaultContent: '<button id="edit">Edit</button>'
                     ,"render": function ( full, type, data, meta ) {
-                        var userType;
-                        if ( data.is_admin ==  1 ) {
-                            userType = 'admin';
-                        }else if (data.is_founder ==  1 ) {
-                            userType = 'founder';
-                        }else if (data.is_investor ==  1  ) {
-                            userType = 'investor';
-                        }
+                        var userType = getUserType(data);
                         //stop();
                         var id = data.id;
                         return '<a class="btn btn-default" id="edit" href ="/admin/details/'+userType+'/'+data.id+'"'+'>Detail</a>'
@@ -113,15 +103,8 @@ function init(){
                     data: ""
                     //,defaultContent: '<button id="delete">Delete</button>'
                 ,"render": function ( full, type, data, meta ) {
-                        var userType;
-                        if ( data.is_admin ==  1 ) {
-                            userType = 'admin';
-                        }else if (data.is_founder ==  1 ) {
-                            userType = 'founder';
-                        }else if (data.is_investor ==  1  ) {
-                            userType = 'investor';
-                        }
-                        stop();
+                        var userType = getUserType(data);
+                        //stop();
                         var id = data.id;
                         return '<a class="btn btn-default" id="delete" href ="/admin/delete/'+userType+'/'+id+'"'+'>Delete</a>'
                     }
@@ -144,24 +127,53 @@ function init(){
         return null;
     };
 
+    getUserType = function(data){
+        var userType;
+        if ( data.is_admin ==  1 ) {
+            userType = 'admin';
+        }else if (data.is_founder ==  1 ) {
+            userType = 'founder';
+        }else if (data.is_investor ==  1  ) {
+            userType = 'investor';
+        }
+        return userType;
+    };
+
     rowListener = function(){
         var usrTable =  $('#usersTable').DataTable();
 
         usrTable.on( 'select', function ( e, dt, type, indexes ) {
         if ( type === 'row' ) {
             //var data = usrTable.rows( indexes ).data().pluck( 'id' );
-            var data =usrTable.row(indexes).data();
+            var rowData =usrTable.row(indexes).data();
+            var userType = getUserType(rowData);
+            var url = 'admin/ajaxUser/'+ userType +'/'+ rowData.id+'';
+            var obj = null;
+            // admin/ajax/{userType}/{id}
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    //console.log(data);
+                   // console.log(loadTable(userType, data));
+                    //$("#dialog-form").load(loadTable(userType, data)).dialog({modal:true}).dialog('open');
+                }
+            }).done(function( data) {
+                obj = data;
+                console.log(data);
+                console.log(loadTable(userType, data));
+                $("#dialog-form").append(loadTable(userType, data)).dialog({
+                    autoOpen: false,
+                    height: 500,
+                    width: 650,
+                    modal: true,
+                    buttons: {
+                        Cancel: function () {
+                            $("#dialog-form").empty().dialog("close");
+                        }
+                    }
+                }).dialog('open');
 
-            $("#dialog-form").dialog(/*{
-
-                appendTo: function(data){{
-                    $(this).parent().appendTo($("<tr></tr>").clone()
-                        .text(data.id));
-                }}
-
-            },*/"open")
-
-           // $("#dialog-form").dialog( "open");
+            });
         }
     } );
 
@@ -198,30 +210,73 @@ function init(){
         console.log( 'Data source JSON: '+usrTable.ajax.json() );
     };
 
-    dialog =function() {
-        $("#dialog-form").dialog({
-            autoOpen: false,
-            height: 500,
-            width: 450,
-            modal: true,
-            buttons: {
-                "Create an account": addUser,
-                Cancel: function () {
-                    $("#dialog-form").dialog("close");
-                }
-            }
-            /*,close: function () {
-                form[0].reset();
-                allFields.removeClass("ui-state-error");
-            }*/
-        });
-    };
-
     msgFadeOut = function(){
         $("#alert").fadeOut( 5000, function() {
             // Animation complete.
         });
     };
+
+    loadTable = function(userType, data){
+        var table = null;
+        var table = '<table class="display" width="80%">';
+        if(userType == 'admin'){
+            table+=loadRow('UserType', userType);
+            table+=loadRow('ID', data.id);
+            table+=loadRow('First Name', data.fname);
+            table+=loadRow('Last Name', data.lname);
+            table+=loadRow('Home Address', data.home_street);
+            table+=loadRow('City', data.home_city);
+            table+=loadRow('State', data.home_state);
+            table+=loadRow('Zip', data.home_zip);
+            table+=loadRow('Phone', data.home_phone);
+            table+=loadRow('Security Level', data.security_level);
+
+        }else if (userType == 'founder'){
+            table+=loadRow('UserType', userType);
+            table+=loadRow('ID', data.id);
+            table+=loadRow('First Name', data.fname);
+            table+=loadRow('Last Name', data.lname);
+            table+=loadRow('Last Name', data.company_name);
+            table+=loadRow('Company Address', data.company_street);
+            table+=loadRow('City', data.company_city);
+            table+=loadRow('State', data.company_state);
+            table+=loadRow('Zip', data.company_zip);
+            table+=loadRow('Phone', data.company_phone);
+            table+=loadRow('Industry', data.company_industry);
+            table+=loadRow('Market Cap.', data.company_mktcap);
+
+        }else if (userType == 'investor'){
+            table+=loadRow('UserType', userType);
+            table+=loadRow('ID', data.id);
+            table+=loadRow('First Name', data.fname);
+            table+=loadRow('Last Name', data.lname);
+            table+=loadRow('Profile Name', data.profile_name);
+            table+=loadRow('Address', data.street);
+            table+=loadRow('City', data.city);
+            table+=loadRow('State', data.state);
+            table+=loadRow('Zip', data.zip);
+            table+=loadRow('Phone', data.phone);
+            table+=loadRow('Invst Objective', data.invst_objective);
+            table+=loadRow('Invst Amount', data.invst_amount_total);
+        }
+        return table+='</table>';
+    };
+
+
+    loadRow = function(label, data){
+        return '<tr class="dlogrow">'
+            + getTH(label)
+            + getTD(data)
+            + '</tr>';
+    };
+
+    getTH = function(label){
+        return '<th>' +label+ ':</th>';
+    };
+    getTD = function(data){
+        return '<td>'+ data+ '</td>';
+    };
+
 //---------------------------------User Tab: END
 
 //START---------------------------------
