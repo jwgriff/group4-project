@@ -11,16 +11,27 @@
 
     <div class="container">
         <h1>Edit {!! $userType !!}</h1>
-        @if($userType == 'Founder')
+        @if($userType == 'Administrator')
+                <!-------------------------------- Admin MODEL FORM ---------------------->
+
+            {!! Form::model($admin, ['action'=> ['AdminController@update',
+                                                  '$userType'=> 'admin',
+                                                    $admin->id]]) !!}
+                 @include('admin.form')
+                {!! Form::submit('Update Admin', array('class' => 'btn btn-default navbar-left')) !!}
+            {!! Form::close() !!}
+           {{-- <a class="btn btn-default navbar-right" id="edit" href ="{{action('AdminController@details')}}">List Campaigns</a> --}}
+        @elseif($userType == 'Founder')
                 <!-------------------------------- FOUNDER MODEL FORM ---------------------->
 
-            {!! Form::model($founder, ['action'=> ['AdminController@update',
-                                                  '$userType'=> 'founder',
-                                                    $founder->id]]) !!}
-                 @include('founders.form')
-                {!! Form::submit('Update Founder', array('class' => 'btn btn-default navbar-left')) !!}
-            {!! Form::close() !!}
-            <a class="btn btn-default navbar-right" id="edit" href ="{{action('AdminController@details')}}">List Campaigns</a>
+        {!! Form::model($founder, ['action'=> ['AdminController@update',
+                                              '$userType'=> 'founder',
+                                                $founder->id]]) !!}
+        @include('founders.form')
+        {!! Form::submit('Update Founder', array('class' => 'btn btn-default navbar-left')) !!}
+        {!! Form::close() !!}
+        <a class="btn btn-default navbar-right" id="edit" href ="{{action('AdminController@details')}}">List Campaigns</a>
+
         @elseif($userType == 'Investor')
                 <!---------------------------------- INVESTOR MODEL FORM --------------------->
             {!! Form::model($investor, array('action'=> ['AdminController@update',
@@ -29,7 +40,7 @@
                  @include('investors.form')
                 {!! Form::submit('Update Investor', array('class' => 'btn btn-default navbar-left')) !!}
             {!! Form::close() !!}
-            <a class="btn btn-default navbar-right" id="edit" href ="{{action('AdminController@details')}}">List Investments</a>
+            <a class="btn btn-default navbar-right" id="edit" href ="{{action('AdminController@details')}}">List Investments</a> --}}
         @elseif($userType == 'Campaign')
                 <!---------------------------------- CAMPAIGN MODEL FORM ---------------------->
             {!! Form::model($campaign, array('action'=> ['AdminController@update',
