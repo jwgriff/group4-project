@@ -23,6 +23,7 @@ Route::get('/', function(){
 Route::get('/public', 'PublicController@main');
 Route::get('/aboutInvestor', 'PublicController@investor');
 Route::get('/aboutFounder', 'PublicController@founder');
+Route::get('/ajax/carousel', 'PublicController@carousel');
 //->where('url', '[A-Za-z]+');
 
 
@@ -38,6 +39,8 @@ Route::get('/admin/delete/{userType}/{id}', 'AdminController@delete');
 Route::post('/admin/update/{userType}/{id}', 'AdminController@update');
 
 Route::get('/admin/details/{userType}/{id}', 'AdminController@details');
+
+Route::get('/admin/ajaxUser/{userType}/{id}', 'AdminController@ajaxUser');
 
 Route::get('/investor', 'InvestorController@index');
 
