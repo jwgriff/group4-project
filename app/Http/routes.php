@@ -13,11 +13,11 @@
 */
 
 
-/*
+
 Route::get('/', function(){
     return redirect()->action('PublicController@main');
 });
-*/
+
 
 //PublicController servicing public pages
 Route::get('/public', 'PublicController@main');
