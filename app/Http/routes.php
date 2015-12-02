@@ -26,24 +26,19 @@ Route::get('/aboutFounder', 'PublicController@founder');
 Route::get('/ajax/carousel', 'PublicController@carousel');
 //->where('url', '[A-Za-z]+');
 
-
 //Administration Controller
 Route::get('/admin', 'AdminController@index');
-
 Route::get('/admin/details/{userType}/{id}', 'AdminController@details');
-
 Route::get('/admin/edit/{userType}/{id}', 'AdminController@edit');
-
 Route::get('/admin/delete/{userType}/{id}', 'AdminController@delete');
-
 Route::post('/admin/update/{userType}/{id}', 'AdminController@update');
-
 Route::get('/admin/details/{userType}/{id}', 'AdminController@details');
-
 Route::get('/admin/ajaxUser/{userType}/{id}', 'AdminController@ajaxUser');
 
+//Investor Controller
 Route::get('/investor', 'InvestorController@index');
 
+//Founder Controller
 Route::get('/founder', 'FounderController@index');
 
 
