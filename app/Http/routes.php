@@ -14,9 +14,9 @@
 
 
 
-Route::get('/', function(){
-    return redirect()->action('PublicController@main');
-});
+//Route::get('/', function(){
+//    return redirect()->action('PublicController@main');
+//});
 
 
 //PublicController servicing public pages
